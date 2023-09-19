@@ -1,0 +1,53 @@
+
+.login{
+    background-color: #114c5f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login input, .login button{
+    border-radius: 5px;
+
+
+}
+
+.login button{
+    margin-top: 15px;
+    background-color: #4A6EB0;
+    border-color: #4A6EB0;
+    color: white;
+    text-transform: uppercase;
+}
+
+.item{
+    margin: 10px;
+    min-width: 70%;
+    min-height: 35px;
+    
+}
+
+.item button{
+    border-radius: 5px;
+}
+
+.item:nth-child(5){
+    background-color: #9cd2d3;
+    border-color: #9cd2d3;
+    margin-top: auto;
+    margin-bottom: 50px;
+}
+
+.itemr{
+    margin: 10px;
+    min-width: 70%;
+    min-height: 35px;
+    border-radius: 5px;
+    margin-top: 15px;
+    background-color: #4A6EB0;
+    border-color: #4A6EB0;
+    color: white;
+    text-transform: uppercase;
+}
+

@@ -1,0 +1,17 @@
+.head{
+    background-color: #9cd2d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
+}
+
+.elemento{
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+}
+
+.logo{
+    max-width: 10%;
+}
