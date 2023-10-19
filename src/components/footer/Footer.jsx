@@ -1,5 +1,4 @@
-import './styles.css';
-import logo from './img/atomlogo.png';
+import './footer.css';
 export function Footer(){
     <div className='footer'>
 

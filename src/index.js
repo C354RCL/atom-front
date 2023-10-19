@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Login1st } from './Login';
-import { Registro } from './Registro';
-import { Head } from './Head';
+import { Footer } from './components/Footer/Footer';
+import { Head } from './components/header/Header';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <> 
+    <Footer />
     <Head />
   </>
 );
