@@ -1,6 +1,6 @@
 import './header.css';
-import logo from './img/atomlogo.png';
-export function Head(){
+import logo from '../../img/atomlogo.png';
+export function Header(){
     return(
         <div className='head'>
 
