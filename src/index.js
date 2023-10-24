@@ -6,13 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import { Footer } from './components/footer/Footer';
 import { Header } from './components/header/Header';
 import { Login} from './Login'
+import { habit } from './components/habit/habit.jsx';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <> 
-    <Login />
+    <habit />
   </>
 );
 
