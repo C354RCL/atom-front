@@ -1,19 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
-import { Footer } from './components/footer/Footer';
-import { Header } from './components/header/Header';
-import { Login} from './Login'
-import { habit } from './components/habit/habit.jsx';
+import { Footer } from './components/footer/Footer.jsx';
+
+import { Habit } from './components/habit/habit.jsx';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <> 
-    <habit />
+    <h1>Tus habitos...</h1>
+    <Habit/>
+    <Habit />
+    <Habit />
+    <Habit />
+    <Footer></Footer>
   </>
 );
 
