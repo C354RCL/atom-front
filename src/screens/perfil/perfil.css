@@ -1,0 +1,29 @@
+.pp{
+
+    max-width: 35%;
+    margin-top: 25%;
+}
+.items{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   
+}
+
+h1{
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+h3{
+    margin: 0;
+    margin-bottom: 10px;
+}
+h4{
+
+}
+.completedhabits{
+    color: white;
+    text-decoration: none;
+}

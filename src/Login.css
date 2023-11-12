@@ -29,7 +29,6 @@
     border-left: white;
     border-right: white;
     
-    
 }
 
 .image{
@@ -41,6 +40,7 @@
 
 .item button{
     border-radius: 5px;
+    
 }
 
 .item:nth-child(5){
@@ -62,3 +62,17 @@
     text-transform: uppercase;
 }
 
+.registro{
+    color: white;
+    text-decoration: none;
+}
+
+.loginb{
+    color: white;
+    text-decoration: none;
+}
+
+Link{
+    color: white;
+    text-decoration: none;
+}

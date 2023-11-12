@@ -6,22 +6,25 @@
     min-height: 70px;
 }
 
-.elemento{
-    flex: 1;
-    max-width: 50%;
-    text-align: left;
-}
-
-.logo{
-    max-width: 10%;
-}
-
 footer{
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+    max-height: 7%;
     background-color: #9cd2d3;
-    display: flex;
     
+}
+.menu{
+    max-height: 50px;
+    max-width: 25%;
+    min-width: fit-content;
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: 30px;
 }

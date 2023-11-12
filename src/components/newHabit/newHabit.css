@@ -54,10 +54,20 @@ button{
     padding-bottom: 5px;
     padding-left: 15px;
     padding-right: 15px;
-    
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .details{
     color: white;
     text-decoration: none;
+
+}
+.detailsbtn{
+    background-color:#114c5f ;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    
 }

@@ -1,23 +1,54 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { Link } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import reportWebVitals from './reportWebVitals';
-import { Footer } from './components/footer/Footer.jsx';
+import reportWebVitals from "./reportWebVitals";
+import { Footer } from "./components/footer/Footer.jsx";
+import { Login } from "./Login.jsx";
+import Registro from "./screens/registro/Registro.jsx";
+import Home from "./screens/home/home.jsx";
+import AgregaHabitos from "./screens/agregaHabitos/agregaHabitos.jsx";
+import Perfil from "./screens/perfil/perfil.jsx";
+import Terminados from "./screens/terminados/terminados.jsx";
+import Detalles from "./screens/detalles/detalles.jsx";
 
-import { Habit } from './components/habit/habit.jsx';
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/registro",
+    element: <Registro />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
+  },
+  {
+    path: "/agregaHabitos",
+    element: <AgregaHabitos />,
+  },
+  {
+    path: "/detalles",
+    element: <Detalles />,
+  },
+  {
+    path: "/perfil",
+    element: <Perfil />,
+  },
+  {
+    path: "/terminados",
+    element: <Terminados />,
+  },
+]);
 
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <> 
-    <h1>Tus habitos...</h1>
-    <Habit/>
-    <Habit />
-    <Habit />
-    <Habit />
-    <Footer></Footer>
+  <>
+    <RouterProvider router={router} />
   </>
 );
 
