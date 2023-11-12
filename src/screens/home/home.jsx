@@ -10,6 +10,14 @@ function Home() {
     <>
       <h1>Tus habitos...</h1>
       <Habit />
+      <Habit />
+      <Habit />
+      <Habit />
+      <Habit />
+      <Habit />
+      <Habit />
+      <Habit />
+      <Habit />
       <Footer></Footer>
     </>
   );
