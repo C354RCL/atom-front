@@ -31,11 +31,6 @@ export function Login() {
         body: JSON.stringify({ userName, passwd }),
       });
 
-      // SI la respues no es 'ok'
-      if (!res.ok) {
-        throw new Error('Error en la solicitud');
-      }
-
       // Guardamos userName en localStorage
       localStorage.setItem('userName', userName);
       // La respuesta del servidor la convertimos a formato JSON
