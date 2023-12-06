@@ -1,7 +1,8 @@
 import { Footer } from "../../components/footer/Footer";
 import { Habit } from "../../components/habit/habit";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 export function Terminados() {
+  const [habitsData, setHabitsData] = useState([]);
   //Obtenemos userName desde localStorage
   const userName = localStorage.getItem('userName');
   // Creamos una funcion que se ejecuta en cuanto se monta el componente
@@ -24,7 +25,7 @@ export function Terminados() {
         
         // Convertimos la respuesta en formato JSON
         const data = await res.json();
-        console.log(data);    
+        setHabitsData(data);   
       } catch (error) {
         console.error(error);
       }
@@ -35,10 +36,11 @@ export function Terminados() {
     <>
       <h1>Tus habitos completados.</h1>
       <h3>¡Felicidades! estos son los habitos que haz logrado comsolidar.</h3>
-      <Habit></Habit>
-      <Habit></Habit>
-      <Habit></Habit>
-      <Habit></Habit>
+      {
+        habitsData.map((habit, index) => {
+          <Habit key={index} data={habit}></Habit>
+        })
+      }
       <Footer></Footer>
     </>
   );

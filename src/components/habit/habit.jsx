@@ -7,7 +7,7 @@ export const Habit = ({ data }) => {
       <img src={logo} alt="logo" className="icono"></img>
       <div className="content">
         <h3>{data.habitName}</h3>
-        <h4>Veces realizado {data.timesdone}/21</h4>
+        <h4>Veces realizado {data.timesDone}/21</h4>
       </div>
       <div className="buttons">
         <button>

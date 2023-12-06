@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //import ReactDOM from "react-dom/client";
 import "./home.css";
 
@@ -6,6 +6,7 @@ import { Footer } from "../../components/footer/Footer.jsx";
 import { Habit } from "../../components/habit/habit.jsx";
 
 export function Home() {
+  const [habitsData, setHabitsData] = useState([]);
   // Obtenemos userName desde localStorage
   const userName = localStorage.getItem("userName");
   // Creamos una funcion que se ejecuta en cuanto se monta el componente
@@ -31,30 +32,22 @@ export function Home() {
 
         // Convertimos la respuesta en formato JSON
         const data = await res.json();
-        console.log(data);
+        setHabitsData(data);
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
-  });
+  }, []);
 
   return (
     <>
-      {data.map((item, index) => (
-        <Habit key={index} data{item}></Habit>
-      ))}
-
       <h1>Tus habitos...</h1>
-      <Habit />
-      <Habit />
-      <Habit />
-      <Habit />
-      <Habit />
-      <Habit />
-      <Habit />
-      <Habit />
-      <Habit />
+      {
+        habitsData && habitsData.map((habit, index) => {  
+          return <Habit key={index} data={habit}></Habit>
+        })
+      }
       <Footer></Footer>
     </>
   );
