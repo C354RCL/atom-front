@@ -49,6 +49,7 @@ export function Login() {
         navigate("/home");
         console.log(data.code);
       } else {
+        alert("Usuario o contraseña incorrecta");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -73,9 +74,7 @@ export function Login() {
         onChange={handlePasswd}
       />
       <button type="submit" className="item" onClick={handleSubmit}>
-        <Link to="/home" className="loginb">
-          Inicia Sesión
-        </Link>
+        Inicia Sesión
       </button>
       <button className="item registro">
         <Link to="/registro" className="registro">
