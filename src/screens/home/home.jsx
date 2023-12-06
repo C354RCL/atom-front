@@ -8,7 +8,6 @@ import { Habit } from "../../components/habit/habit.jsx";
 export function Home() {
   // Obtenemos userName desde localStorage
   const userName = localStorage.getItem('userName');
-  console.log(userName);
   // Creamos una funcion que se ejecuta en cuanto se monta el componente
   useEffect(() => {
     // Creamos una funcion asincrona 
@@ -16,10 +15,10 @@ export function Home() {
       try {
         // Creamos la peticion a la API
         const res = await fetch(`http://localhost:3000/main?userName=${userName}`, {
-          method : 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          }
+        method : 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
         });
     
         // Si la respuesta no es 'ok'
