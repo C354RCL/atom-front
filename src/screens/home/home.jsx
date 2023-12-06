@@ -28,7 +28,7 @@ export function Home() {
         
         // Convertimos la respuesta en formato JSON
         const data = await res.json();
-        console.log(data);    
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
