@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import logo from "./img/atomlogo.png";
+import "./Login.css";
 
 export function Login() {
   // Inicializamos las variables como cadenas vacias
