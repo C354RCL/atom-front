@@ -35,11 +35,13 @@ export function Terminados() {
   return (
     <>
       <h1>Tus habitos completados.</h1>
-      <h3>¡Felicidades! estos son los habitos que haz logrado comsolidar.</h3>
       {
-        habitsData && habitsData.map((habit, index) => {
+        habitsData.length > 0  ? 
+        habitsData.map((habit, index) => {
+          <h3>¡Felicidades! estos son los habitos que haz logrado comsolidar.</h3>
           return <Habit key={index} data={habit}></Habit>
-        })
+        }) :
+        <h3>Por el momento no tienes habitos completados</h3>
       }
       <Footer></Footer>
     </>

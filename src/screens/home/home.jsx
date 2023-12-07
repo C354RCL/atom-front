@@ -45,9 +45,11 @@ export function Home() {
       <h1>Tus habitos...</h1>
       <div>
       {
-        habitsData && habitsData.map((habit, index) => {  
+        habitsData.length > 0 ?
+        habitsData.map((habit, index) => {  
           return <Habit key={index} data={habit}></Habit>  
-        })
+        }) :
+        <h3>No tines habitos, ¡Agrega algunos!</h3>
       }
 
       </div>

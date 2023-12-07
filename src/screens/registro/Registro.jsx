@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import "./Registro.css";
+import { useNavigate } from "react-router-dom";
 import logo from "../../img/atomlogo.png";
 
 export function Registro() {
@@ -7,6 +8,7 @@ export function Registro() {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [passwd, setPasswd] = useState('');
+  const navigate = useNavigate();
 
   // Manejador de eventos de userName
   const handleUserName = (event) => {
@@ -43,11 +45,16 @@ export function Registro() {
 
       // La respuesta del servidor la convertimos a formato JSON
       const data = await res.json();
-      // Se imprime el resultado
-      console.log(data);
+      if (data.code === 201) {
+        alert("Usuario registrado correctamente");
+        // Realiza la redirección a "/"
+        navigate("/");
+      } else {
+        alert("No se ha podido registrar el usuario");
+      }
     } catch (error) {
       console.error('Error: ', error);
-    }
+    } 
   };
 
   return (

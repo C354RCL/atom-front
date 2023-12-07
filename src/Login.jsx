@@ -39,15 +39,10 @@ export function Login() {
       const data = await res.json();
       // Guardamos el token en localStorage
       localStorage.setItem("token", data.token);
-      // Se imprime el resultado
-      console.log(data);
-
-      //
 
       if (data.code === 200) {
         // Realiza la redirección a "/home"
         navigate("/home");
-        console.log(data.code);
       } else {
         alert("Usuario o contraseña incorrecta");
       }
