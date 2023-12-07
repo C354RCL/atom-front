@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 export const NewHabit = ({data}) => {
   const [imageURL, setImageURL] = useState(null);
+  const userName = localStorage.getItem('userName');
 
   // Función para convertir un Buffer a Blob
   const bufferToBlob = (buffer, type) => {
@@ -35,6 +36,31 @@ export const NewHabit = ({data}) => {
     loadImageURL();
   }, [data.icon]);
 
+  const handleAgregarClick = async () => {
+    try {
+      // Realiza la petición para agregar el hábito al usuario
+      const res = await fetch("http://localhost:3000/habit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName,
+          habitId: data.habitId,
+          // Otros datos necesarios para agregar el hábito al usuario
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Error al agregar el hábito al usuario");
+      }
+
+      // Manejar cualquier lógica adicional después de la petición si es necesario
+    } catch (error) {
+      console.error(error);
+    }
+  }; 
+
   return (
     <div className="elements" id={data.habitId}>
       {imageURL && <img src={imageURL} alt="logo" className="icono" />}
@@ -43,9 +69,9 @@ export const NewHabit = ({data}) => {
         <h4>Categoria: {data.categoryName}</h4>
       </div>
       <div className="buttons">
-        <button className="agregar">Agregar</button>
+        <button className="agregar" onClick={handleAgregarClick}>Agregar</button>
         <button className="detailsbtn">
-          <Link to="/detalles" className="details">
+          <Link to={`/detalles/${data.habitId}`} className="details">
             Ver detalles
           </Link>
         </button>
