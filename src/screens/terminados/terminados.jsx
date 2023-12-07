@@ -41,7 +41,7 @@ export function Terminados() {
           <h3>¡Felicidades! estos son los habitos que haz logrado comsolidar.</h3>
           return <Habit key={index} data={habit}></Habit>
         }) :
-        <h3>Por el momento no tienes habitos completados</h3>
+        <h3>Por el momento no tienes habitos completados, ¡Agrega algunos!</h3>
       }
       <Footer></Footer>
     </>
