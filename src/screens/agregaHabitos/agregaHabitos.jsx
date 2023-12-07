@@ -1,7 +1,8 @@
 import { Footer } from "../../components/footer/Footer";
 import { NewHabit } from "../../components/newHabit/newHabit";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 export function AgregaHabitos() {
+  const [habitsData, setHabitsData] = useState([]);
   // Obtenemos userName desde localStorage
   const userName = localStorage.getItem('userName');
   // Creamos una funcion que se ejecuta en cuanto se monta el componente
@@ -24,21 +25,22 @@ export function AgregaHabitos() {
         
         // Convertimos la respuesta en formato JSON
         const data = await res.json();
-        console.log(data);    
+        setHabitsData(data);  
       } catch (error) {
         console.error(error);
       }
     }
     fetchData();
-  });
+  }, []);
 
   return (
     <>
       <h1>Encuentra Nuevos Habitos...</h1>
-      <NewHabit></NewHabit>
-      <NewHabit></NewHabit>
-      <NewHabit></NewHabit>
-      <NewHabit></NewHabit>
+      {
+        habitsData && habitsData.map((habit, index) => {  
+          return <NewHabit key={index} data={habit}></NewHabit>
+        })
+      }
       <Footer></Footer>
     </>
   );

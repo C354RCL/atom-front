@@ -31,14 +31,14 @@ export function Terminados() {
       }
     }
     fetchData();
-  });
+  }, [userName]);
   return (
     <>
       <h1>Tus habitos completados.</h1>
       <h3>¡Felicidades! estos son los habitos que haz logrado comsolidar.</h3>
       {
-        habitsData.map((habit, index) => {
-          <Habit key={index} data={habit}></Habit>
+        habitsData && habitsData.map((habit, index) => {
+          return <Habit key={index} data={habit}></Habit>
         })
       }
       <Footer></Footer>

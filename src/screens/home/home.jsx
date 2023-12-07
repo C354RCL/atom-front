@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-//import ReactDOM from "react-dom/client";
+// import ReactDOM from "react-dom/client";
 import "./home.css";
 
 import { Footer } from "../../components/footer/Footer.jsx";

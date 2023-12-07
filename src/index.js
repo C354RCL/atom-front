@@ -1,15 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { Link } from "react-router-dom";
 import {
   createBrowserRouter,
   RouterProvider,
-  RedirectFunction,
+  // RedirectFunction,
 } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-import { Footer } from "./components/footer/Footer.jsx";
+// import { Footer } from "./components/footer/Footer.jsx";
 import { Login } from "./Login.jsx";
 import Registro from "./screens/registro/Registro.jsx";
 import Home from "./screens/home/home.jsx";
@@ -36,7 +35,7 @@ const router = createBrowserRouter([
     element: <AgregaHabitos />,
   },
   {
-    path: "/detalles",
+    path: "/detalles/:habitId",
     element: <Detalles />,
   },
   {
