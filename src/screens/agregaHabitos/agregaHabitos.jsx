@@ -31,7 +31,7 @@ export function AgregaHabitos() {
       }
     }
     fetchData();
-  }, []);
+  }, [userName]);
 
   return (
     <>

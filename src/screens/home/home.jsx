@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import ReactDOM from "react-dom/client";
 import "./home.css";
-
 import { Footer } from "../../components/footer/Footer.jsx";
 import { Habit } from "../../components/habit/habit.jsx";
 
@@ -38,16 +37,19 @@ export function Home() {
       }
     };
     fetchData();
-  }, []);
+  }, [userName]);
 
   return (
     <>
       <h1>Tus habitos...</h1>
+      <div>
       {
         habitsData && habitsData.map((habit, index) => {  
-          return <Habit key={index} data={habit}></Habit>
+          return <Habit key={index} data={habit}></Habit>  
         })
       }
+
+      </div>
       <Footer></Footer>
     </>
   );

@@ -1,15 +1,16 @@
 import { Footer } from "../../components/footer/Footer.jsx";
 import React, { useEffect, useState } from "react";
-import profile from "../../img/profile.png";
+import { useParams } from "react-router-dom";
 import "./detalles.css";
-function Detalles({match}) {
+function Detalles() {
   const [habitData, setHabitData] = useState(null);
+  const [imageURL, setImageURL] = useState(null);
+  const {habitId} = useParams();
   useEffect(() => {
     // Realiza una nueva llamada a la API para obtener la información del hábito específico
-    const fetchHabitData = async () => {
+    const fetchData = async () => {
       try {
-        const habitId = match.params.habitId;
-        const res = await fetch(`http://localhost:3000/habit/info?habitId=${habitId}`, {
+        const res = await fetch(`http://localhost:3000/habits/info?habitId=${habitId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -22,13 +23,23 @@ function Detalles({match}) {
 
         const data = await res.json();
         setHabitData(data);
+
+        // Cargar y mostrar la imagen desde el buffer
+        if (data[0].icon && data[0].icon.type === "Buffer") {
+          const blob = new Blob([new Uint8Array(data[0].icon.data)], {
+            type: "image/png",
+          });
+          const url = URL.createObjectURL(blob);
+          setImageURL(url);
+        }
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchHabitData();
-  }, [match.params.habitId]);
+    fetchData();
+  }, [habitId]);
+
 
   if (!habitData) {
     return <p>Cargando detalles...</p>;
@@ -37,11 +48,11 @@ function Detalles({match}) {
   return (
     <>
       <div className="items">
-        <img className="pp" src={profile} alt="" />
-        <h1>{habitData.habitName}</h1>
+      <img className="pp" src={imageURL} alt="" />
+        <h1>{habitData[0].habitName}</h1>
         <div className="texto">
           <h3>
-          {habitData.description}
+          {habitData[0].description}
           </h3>
         </div>
         <Footer></Footer>
