@@ -44,7 +44,7 @@ export const Habit = ({ data }) => {
       </div>
       <div className="buttons">
         <button>
-        <Link to={`/detalles/${data.habitId}`} className="details">
+        <Link to={`/detallesCompletar/${data.habitId}`} className="details">
           Ver detalles
         </Link>
         </button>

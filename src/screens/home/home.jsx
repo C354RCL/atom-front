@@ -31,6 +31,7 @@ export function Home() {
 
         // Convertimos la respuesta en formato JSON
         const data = await res.json();
+        console.log(data)
         setHabitsData(data);
       } catch (error) {
         console.error(error);

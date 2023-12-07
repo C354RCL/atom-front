@@ -1,8 +1,8 @@
 import { Footer } from "../../components/footer/Footer.jsx";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./detalles.css";
-function Detalles() {
+import "./detallesCompletar.css";
+function DetallesCompletar() {
   const [habitData, setHabitData] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const {habitId} = useParams();
@@ -23,6 +23,7 @@ function Detalles() {
         }
 
         const data = await res.json();
+        console.log(data)
         setHabitData(data);
 
         // Cargar y mostrar la imagen desde el buffer
@@ -41,11 +42,11 @@ function Detalles() {
     fetchData();
   }, [habitId]);
 
-  const handleAgregarClick = async () => {
+  const handleRealizadoClick = async () => {
     try {
       // Realiza la petición para agregar el hábito al usuario
       const res = await fetch("http://localhost:3000/habit", {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -81,11 +82,11 @@ function Detalles() {
           {habitData[0].description}
           </h3>
         </div>
-        <button className="btn-agregar" onClick={handleAgregarClick}>Agregar</button>
+        <button className="btn-completado" onClick={handleRealizadoClick}>Realizado por hoy</button>
         <Footer></Footer>
       </div>
     </>
   );
 }
 
-export default Detalles;
+export default DetallesCompletar;

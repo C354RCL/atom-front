@@ -16,6 +16,7 @@ import AgregaHabitos from "./screens/agregaHabitos/agregaHabitos.jsx";
 import Perfil from "./screens/perfil/perfil.jsx";
 import Terminados from "./screens/terminados/terminados.jsx";
 import Detalles from "./screens/detalles/detalles.jsx";
+import DetallesCompletar from "./components/detallesCompletar/detallesCompletar.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/detalles/:habitId",
     element: <Detalles />,
+  },
+  {
+    path : "/detallesCompletar/:habitId",
+    element : <DetallesCompletar/>
   },
   {
     path: "/perfil",

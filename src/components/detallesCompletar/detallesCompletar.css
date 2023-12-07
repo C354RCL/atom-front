@@ -1,0 +1,38 @@
+.pp{
+
+    max-width: 35%;
+    margin-top: 25%;
+}
+.items{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   margin:5%;
+}
+
+h1{
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 35px;
+}
+
+h3{
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: medium;
+    
+}
+.completedhabits{
+    color: white;
+    text-decoration: none;
+}
+.texto{
+    margin: 10%;
+}
+.btn-completado{
+    background-color: #114c5f;
+    width: 80%;
+    height: 40px;
+    font-size: 20px;
+}
