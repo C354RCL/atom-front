@@ -31,7 +31,7 @@ export function Home() {
 
         // Convertimos la respuesta en formato JSON
         const data = await res.json();
-        console.log(data)
+        console.log(data);
         setHabitsData(data);
       } catch (error) {
         console.error(error);
@@ -43,15 +43,14 @@ export function Home() {
   return (
     <>
       <h1>Tus habitos...</h1>
-      <div>
-      {
-        habitsData.length > 0 ?
-        habitsData.map((habit, index) => {  
-          return <Habit key={index} data={habit}></Habit>  
-        }) :
-        <h3>No tines habitos, ¡Agrega algunos!</h3>
-      }
-
+      <div className="listaHabitos">
+        {habitsData.length > 0 ? (
+          habitsData.map((habit, index) => {
+            return <Habit key={index} data={habit}></Habit>;
+          })
+        ) : (
+          <h3>No tines habitos, ¡Agrega algunos!</h3>
+        )}
       </div>
       <Footer></Footer>
     </>
