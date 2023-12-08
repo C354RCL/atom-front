@@ -30,3 +30,14 @@ h3{
 .texto{
     margin: 10%;
 }
+
+.btn-agregar{
+    margin-top: 15px;
+    background-color: #4A6EB0;
+    border-color: #4A6EB0;
+    color: white;
+    text-transform: uppercase;
+    margin: 10px;
+    min-width: 70%;
+    min-height: 35px;
+}
