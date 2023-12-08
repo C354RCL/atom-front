@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import "./Registro.css";
 import { useNavigate } from "react-router-dom";
 import logo from "../../img/atomlogo.png";
 
 export function Registro() {
   // Inicializamos las variables como cadenas vacias
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [passwd, setPasswd] = useState('');
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [passwd, setPasswd] = useState("");
   const navigate = useNavigate();
 
   // Manejador de eventos de userName
@@ -29,18 +29,18 @@ export function Registro() {
   const handleRegistrar = async (event) => {
     event.preventDefault();
 
-    try{
-      const res = await fetch('http://localhost:3000/login', {
-        method : 'POST',
+    try {
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body : JSON.stringify({userName, email, passwd}) 
+        body: JSON.stringify({ userName, email, passwd }),
       });
 
       // Si la respuesta no es 'ok'
-      if(!res.ok) {
-        throw new Error('Error en la solicitud');
+      if (!res.ok) {
+        throw new Error("Error en la solicitud");
       }
 
       // La respuesta del servidor la convertimos a formato JSON
@@ -53,8 +53,8 @@ export function Registro() {
         alert("No se ha podido registrar el usuario");
       }
     } catch (error) {
-      console.error('Error: ', error);
-    } 
+      console.error("Error: ", error);
+    }
   };
 
   return (
