@@ -1,9 +1,9 @@
 import "./newHabit.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-export const NewHabit = ({data}) => {
+export const NewHabit = ({ data }) => {
   const [imageURL, setImageURL] = useState(null);
-  const userName = localStorage.getItem('userName');
+  const userName = localStorage.getItem("userName");
 
   // Función para convertir un Buffer a Blob
   const bufferToBlob = (buffer, type) => {
@@ -24,7 +24,10 @@ export const NewHabit = ({data}) => {
     const loadImageURL = async () => {
       if (data.icon && data.icon.type === "Buffer") {
         try {
-          const blob = bufferToBlob(new Uint8Array(data.icon.data), "image/png");
+          const blob = bufferToBlob(
+            new Uint8Array(data.icon.data),
+            "image/png"
+          );
           const url = await blobToDataURL(blob);
           setImageURL(url);
         } catch (error) {
@@ -59,8 +62,9 @@ export const NewHabit = ({data}) => {
     } catch (error) {
       console.error(error);
     }
-  }; 
+  };
 
+  //Este componente muestra de igual manera que el componente habit los habitos en una tarjeta con su descripcion, solo que en este se incluye la opcion de agregar un habito que no se tiene todavia
   return (
     <div className="elements" id={data.habitId}>
       {imageURL && <img src={imageURL} alt="logo" className="icono" />}
@@ -68,8 +72,13 @@ export const NewHabit = ({data}) => {
         <h3>{data.habitName}</h3>
         <h4>Categoria: {data.categoryName}</h4>
       </div>
+
       <div className="buttons">
-        <button className="agregar" onClick={handleAgregarClick}>Agregar</button>
+        {/*Agrega el habito a tu pagina de inicio */}
+        <button className="agregar" onClick={handleAgregarClick}>
+          Agregar
+        </button>
+        {/*Muestra los detalles del habito  */}
         <button className="detailsbtn">
           <Link to={`/detalles/${data.habitId}`} className="details">
             Ver detalles
@@ -78,4 +87,4 @@ export const NewHabit = ({data}) => {
       </div>
     </div>
   );
-}
+};

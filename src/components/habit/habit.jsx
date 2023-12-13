@@ -23,7 +23,10 @@ export const Habit = ({ data }) => {
     const loadImageURL = async () => {
       if (data.icon && data.icon.type === "Buffer") {
         try {
-          const blob = bufferToBlob(new Uint8Array(data.icon.data), "image/png");
+          const blob = bufferToBlob(
+            new Uint8Array(data.icon.data),
+            "image/png"
+          );
           const url = await blobToDataURL(blob);
           setImageURL(url);
         } catch (error) {
@@ -35,6 +38,7 @@ export const Habit = ({ data }) => {
     loadImageURL();
   }, [data.icon]);
 
+  //Componente que es usado para mostrar los habitos en tarjetas así como botnes para interactuar con el
   return (
     <div className="elements" id={data.habitId}>
       {imageURL && <img src={imageURL} alt="logo" className="icono" />}
@@ -43,10 +47,11 @@ export const Habit = ({ data }) => {
         <h4>Veces realizado {data.timesDone}/21</h4>
       </div>
       <div className="buttons">
+        {/*Muestra los detalles del habitp */}
         <button>
-        <Link to={`/detallesCompletar/${data.habitId}`} className="details">
-          Ver detalles
-        </Link>
+          <Link to={`/detallesCompletar/${data.habitId}`} className="details">
+            Ver detalles
+          </Link>
         </button>
       </div>
     </div>

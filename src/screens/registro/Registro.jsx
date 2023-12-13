@@ -57,6 +57,7 @@ export function Registro() {
     }
   };
 
+  //En esta página se puede registrar un nuevo usuario para tener acceso a la plataforma
   return (
     <div className="login">
       <img src={logo} alt="logo" className="image" />

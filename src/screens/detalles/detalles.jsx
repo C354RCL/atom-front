@@ -5,18 +5,21 @@ import "./detalles.css";
 function Detalles() {
   const [habitData, setHabitData] = useState(null);
   const [imageURL, setImageURL] = useState(null);
-  const {habitId} = useParams();
-  const userName = localStorage.getItem('userName');
+  const { habitId } = useParams();
+  const userName = localStorage.getItem("userName");
   useEffect(() => {
     // Realiza una nueva llamada a la API para obtener la información del hábito específico
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/habits/info?habitId=${habitId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          `http://localhost:3000/habits/info?habitId=${habitId}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!res.ok) {
           throw new Error("Error en la solicitud");
@@ -64,24 +67,25 @@ function Detalles() {
     } catch (error) {
       console.error(error);
     }
-  }; 
-
+  };
 
   if (!habitData) {
     return <p>Cargando detalles...</p>;
   }
 
+  //Esta pantalla muestra los detalles de cada habito
   return (
     <>
       <div className="items">
-      <img className="pp" src={imageURL} alt="" />
+        <img className="pp" src={imageURL} alt="" />
         <h1>{habitData[0].habitName}</h1>
         <div className="texto">
-          <h3>
-          {habitData[0].description}
-          </h3>
+          <h3>{habitData[0].description}</h3>
         </div>
-        <button className="btn-agregar" onClick={handleAgregarClick}>Agregar</button>
+        {/*Se agrega el habito a la pantalla principal */}
+        <button className="btn-agregar" onClick={handleAgregarClick}>
+          Agregar
+        </button>
         <Footer></Footer>
       </div>
     </>

@@ -40,12 +40,15 @@ export function Home() {
     fetchData();
   }, [userName]);
 
+  //Página principal donde se muestran los habitos del usuario
   return (
     <>
       <h1>Tus habitos...</h1>
       <div className="listaHabitos">
+        {/*Si no se tiene  ningín habito se muestra un mensaje de que no hay habitos agregados, si se tienen habitos se muestran  */}
         {habitsData.length > 0 ? (
           habitsData.map((habit, index) => {
+            //Se muestra cada uno de los habitos en el componente habit
             return <Habit key={index} data={habit}></Habit>;
           })
         ) : (

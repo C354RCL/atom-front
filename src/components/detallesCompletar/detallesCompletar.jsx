@@ -2,28 +2,34 @@ import { Footer } from "../../components/footer/Footer.jsx";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./detallesCompletar.css";
+
+//Componente de los detalles del habito con la opción de completar el habito en el día
+
 function DetallesCompletar() {
   const [habitData, setHabitData] = useState(null);
   const [imageURL, setImageURL] = useState(null);
-  const {habitId} = useParams();
-  const userName = localStorage.getItem('userName');
+  const { habitId } = useParams();
+  const userName = localStorage.getItem("userName");
   useEffect(() => {
     // Realiza una nueva llamada a la API para obtener la información del hábito específico
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/habits/info?habitId=${habitId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          `http://localhost:3000/habits/info?habitId=${habitId}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!res.ok) {
           throw new Error("Error en la solicitud");
         }
 
         const data = await res.json();
-        console.log(data)
+        console.log(data);
         setHabitData(data);
 
         // Cargar y mostrar la imagen desde el buffer
@@ -65,8 +71,7 @@ function DetallesCompletar() {
     } catch (error) {
       console.error(error);
     }
-  }; 
-
+  };
 
   if (!habitData) {
     return <p>Cargando detalles...</p>;
@@ -75,14 +80,15 @@ function DetallesCompletar() {
   return (
     <>
       <div className="items">
-      <img className="pp" src={imageURL} alt="" />
+        <img className="pp" src={imageURL} alt="" />
         <h1>{habitData[0].habitName}</h1>
         <div className="texto">
-          <h3>
-          {habitData[0].description}
-          </h3>
+          <h3>{habitData[0].description}</h3>
         </div>
-        <button className="btn-completado" onClick={handleRealizadoClick}>Realizado por hoy</button>
+        {/*Botón que agrega uno al contador de dias completados */}
+        <button className="btn-completado" onClick={handleRealizadoClick}>
+          Realizado por hoy
+        </button>
         <Footer></Footer>
       </div>
     </>

@@ -37,6 +37,7 @@ export function AgregaHabitos() {
     fetchData();
   }, [userName]);
 
+  //Esta página muestra todos los habitos disponibles para que se puedan agregar a la pantalla principal
   return (
     <>
       <h1>Encuentra Nuevos Habitos...</h1>
